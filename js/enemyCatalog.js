@@ -24,7 +24,7 @@ const enemyElite = L.icon({
 });
 
 const fallbackEnemyIcon = L.icon({
-    iconUrl: 'img/other/enemy_unknown.png',
+    iconUrl: 'img/other/fight.webp',
     iconSize: [40, 40],
     iconAnchor: [20, 20]
 });
