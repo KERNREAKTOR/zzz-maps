@@ -174,7 +174,7 @@ MAP_BOSSES.forEach(entry => {
     if (!boss) return;
     entry.positions.forEach(pos => {
 
-        L.marker(toLatLng(pos.x, pos.y), { icon: entry.enemyIcon })
+        L.marker(toLatLng(pos.x, pos.y), { icon: boss.enemyIcon })
             .addTo(map)
             .bindPopup(buildBossPopup(boss));
     });
