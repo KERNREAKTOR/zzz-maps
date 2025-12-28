@@ -13,8 +13,20 @@ const resistanceElectric = "<img src = 'img/elements/Icon_Electric.webp' width =
 
 const bossIcon = L.icon({
     iconUrl: 'fight.webp',
-    iconSize: [20, 20],
-    iconAnchor: [10, 10]
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
+const enemyNormal = L.icon({
+    iconUrl: 'img/other/enemy_normal.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
+
+const enemyElite = L.icon({
+    iconUrl: 'img/other/enemy_elite.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
 });
 
 const bImageSize = 100;
@@ -25,11 +37,17 @@ const BOSS_CATALOG = {
     banyrek:
     {
         id: "banyrek",
+        bossIcon : L.icon({
+            iconUrl: 'fight.webp',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        }),
         name: "Banyrek",
         hp: 356.878,
         atk: 891,
         def: 620,
         daze: 5.855,
+        enemyIcon: enemyElite,
         dazeDuration: "10",
         bImage: "<img src = 'img/enemy/elite/Enemy_Banyrek.png' height = " + bImageSize + ">",
         dazeMultipley: "150%",
@@ -44,6 +62,7 @@ const BOSS_CATALOG = {
         atk: 774,
         def: 744,
         daze:6.325,
+        enemyIcon: enemyElite,
         dazeDuration:"13",
         bImage: "<img src = 'img/enemy/elite/Enemy_Farbauti_-_Energized.webp' height = " + bImageSize + ">",
         dazeMultipley: "150%",
@@ -59,6 +78,7 @@ const BOSS_CATALOG = {
         def: 689,
         daze: 5069,
         dazeDuration: "10",
+        enemyIcon: enemyElite,
         bImage: "<img src = 'img/enemy/elite/Enemy_Hollow_Thug_-_Wanted_Enforcer.webp' height = " + bImageSize + ">",
         dazeMultipley: "200%",
         weaknesses: weaknessFire + "<br>" + weaknessPhysical,
@@ -75,8 +95,9 @@ const BOSS_CATALOG = {
         atk: 605,
         def: 551,
         daze: 1.003,
-        dazeDuration: "6,5",
+        dazeDuration: "6,5",        
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Huskron.webp' height = " + bImageSize + ">",
         weaknesses: weaknessFire + "<br>" + weaknessEther,
         ressi: "keine"
@@ -91,6 +112,7 @@ const BOSS_CATALOG = {
         daze: 912,
         dazeDuration: "6,5",
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Alpeca_-_Energized.webp' height = " + bImageSize + ">",
         weaknesses: weaknessFire ,
         ressi: "keine"
@@ -105,6 +127,7 @@ const BOSS_CATALOG = {
         daze: 912,
         dazeDuration: "6,5",
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Hollow_Thug_-_Assaulter.webp' height = " + bImageSize + ">",
         weaknesses: weaknessIce + "<br>" + weaknessPhysical,
         ressi: "keine"
@@ -119,6 +142,7 @@ const BOSS_CATALOG = {
         daze: 912,
         dazeDuration: "6,5",
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Hollow_Thug_-_Rustler.webp' height = " + bImageSize + ">",
         weaknesses: weaknessFire + "<br>" + weaknessPhysical,
         ressi: "keine"
@@ -133,6 +157,7 @@ const BOSS_CATALOG = {
         daze: 1003,
         dazeDuration: "6,5",
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Miasma_Walker_-_Arcavor.webp' height = " + bImageSize + ">",
         weaknesses: weaknessPhysical + "<br>" + weaknessEther,
         ressi: "keine"
@@ -147,6 +172,7 @@ const BOSS_CATALOG = {
         daze: 912,
         dazeDuration: "6,5",
         dazeMultipley: "150%",
+        enemyIcon: enemyNormal,
         bImage: "<img src = 'img/enemy/normal/Enemy_Faun_-_Energized.webp' height = " + bImageSize + ">",
         weaknesses: weaknessFire,
         ressi: "keine"
@@ -159,7 +185,7 @@ MAP_BOSSES.forEach(entry => {
     if (!boss) return;
     entry.positions.forEach(pos => {
 
-        L.marker(toLatLng(pos.x, pos.y), { icon: bossIcon })
+        L.marker(toLatLng(pos.x, pos.y), { icon: entry.enemyIcon })
             .addTo(map)
             .bindPopup(buildBossPopup(boss));
     });
