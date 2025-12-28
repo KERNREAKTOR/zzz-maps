@@ -23,6 +23,11 @@ const enemyElite = L.icon({
     iconAnchor: [20, 20]
 });
 
+const fallbackEnemyIcon = L.icon({
+    iconUrl: 'img/other/enemy_unknown.png',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
 const bImageSize = 100;
 const BOSS_CATALOG = {
     //#################
@@ -171,10 +176,17 @@ const BOSS_CATALOG = {
 MAP_BOSSES.forEach(entry => {
 
     const boss = BOSS_CATALOG[entry.bossId];
-    if (!boss) return;
-    entry.positions.forEach(pos => {
+    if (!boss) {
+        console.warn("Unbekannter Boss:", entry.bossId);
+        return;
+    }
 
-        L.marker(toLatLng(pos.x, pos.y), { icon: enemyNormal })
+    const icon = boss.enemyIcon instanceof L.Icon
+        ? boss.enemyIcon
+        : fallbackEnemyIcon;
+
+    entry.positions.forEach(pos => {
+        L.marker(toLatLng(pos.x, pos.y), { icon })
             .addTo(map)
             .bindPopup(buildBossPopup(boss));
     });
