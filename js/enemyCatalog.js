@@ -11,12 +11,6 @@ const resistanceFire = "<img src = 'img/elements/Icon_Fire.webp' width = " + ico
 const resistancePhysical = "<img src = 'img/elements/Icon_Physical.webp' width = " + iconSize + " height = " + iconSize + "> +20% Physisch ";
 const resistanceElectric = "<img src = 'img/elements/Icon_Electric.webp' width = " + iconSize + " height = " + iconSize + "> +20% Elektrisch ";
 
-const bossIcon = L.icon({
-    iconUrl: 'fight.webp',
-    iconSize: [40, 40],
-    iconAnchor: [20, 20]
-});
-
 const enemyNormal = L.icon({
     iconUrl: 'img/other/enemy_normal.png',
     iconSize: [40, 40],
