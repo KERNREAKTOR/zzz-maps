@@ -31,11 +31,6 @@ const BOSS_CATALOG = {
     banyrek:
     {
         id: "banyrek",
-        bossIcon : L.icon({
-            iconUrl: 'fight.webp',
-            iconSize: [20, 20],
-            iconAnchor: [10, 10]
-        }),
         name: "Banyrek",
         hp: 356.878,
         atk: 891,
