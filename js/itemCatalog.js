@@ -1,8 +1,8 @@
 const mapIcon = 20;
 const lumiteIcon = L.icon({
   iconUrl: 'img/ore/Item_Lumite_Ore.webp',
-  iconSize: [20, 20],
-  iconAnchor: [10, 10]
+  iconSize: [40, 40],
+  iconAnchor: [20, 20]
 });
 const ITEM_CATALOG = {
   lumite_ore: {
