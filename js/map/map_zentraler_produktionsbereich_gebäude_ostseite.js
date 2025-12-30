@@ -2,7 +2,7 @@ const width = 1500;
 const height = 1500;
 
 const bounds = [[0, 0], [height, width]];
-L.imageOverlay('Zentraler Produktionsbereich – Gebäude Ostseite.png', bounds).addTo(map);
+L.imageOverlay('img/maps/zentraler_produktionsbereich_gebäude_ostseite.png', bounds).addTo(map);
 map.fitBounds(bounds);
 map.on('click', function (e) {
 

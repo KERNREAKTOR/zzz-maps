@@ -51,7 +51,7 @@ const BOSS_CATALOG = {
     Enemy_Farbauti_Energized:
     {
         id: "Enemy_Farbauti_Energized",
-        name: "Farbauti – Energiegeladen",
+        name: "Farbauti <br> Energiegeladen",
         hp: 343.414,
         atk: 774,
         def: 744,
